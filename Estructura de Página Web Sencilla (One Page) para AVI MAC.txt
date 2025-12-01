@@ -1,0 +1,24 @@
+﻿Fabián Flores   |   WhatsApp: 55 4928 2677   fabianfloram@gmail.com
+Diseño Web & Desarrollo Frontend  
+
+
+
+
+Estructura de Página Web Sencilla (One Page) para AVI MAC
+Una "one-page" es ideal para una presencia online rápida y concisa, destacando lo esencial de AVI MAC.
+1. Sección Principal (Header/Hero)
+   * Banner: Imágenes slider o video representativo de AVI MAC (mezcla de shows y equipo).
+   * Eslógan: Mensaje claro y atractivo.
+   * Botón CTA: "Descubre Nuestros Servicios" o "Contáctanos".
+2. Sobre Nosotros (Quiénes Somos)
+   * Párrafo breve con la misión y esencia de la empresa. Misión, Visión, Políticas de la empresa(link de descarga).
+3. Nuestros Servicios (Con Enlaces Ancla)
+   * Renta de Equipo: Sección para las categorías principales de equipo (Iluminación, Video, Audio, Estructuras, Escenario) descripción de los servicios con enlaces a un catálogo completo interactivo.
+   * Espectáculos: Sección para cada tipo de show (Ballet, Músicos, Homenajes, Master Trucks, Comedia, Adriana Macías, Monólogo, Infantil) con una descripción muy concisa y una imagen destacada. Enlaces a un catálogo completo interactivo.
+4. Galería Destacada
+   * Una cuadrícula de imágenes y quizás un video corto que muestre lo mejor de sus shows y el equipo en acción.
+5. Contacto
+   * Formulario de contacto nombre, email, correo electrónico, teléfono, tipo de servicio, mensaje. (Conección con google firebase)
+6. Extras
+   * Botón de whatsapp para mensajes a su whatsapp personal o empresarial.
+   * Ajuste de SEO básico para motores de búsqueda.

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
+
 
 @font-face {
   font-family: 'FPHeadProItalic';
@@ -4661,7 +4661,7 @@ a {
 }
 
 .font-instrument {
-  font-family: 'Instrument Serif', system-ui;
+  font-family: 'FPHeadProItalic', system-ui;
 }
 
 .font-FPHeadPro {
@@ -5490,7 +5490,7 @@ img {
   padding-bottom: 0.5rem;
   padding-left: 17px;
   padding-right: 17px;
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   line-height: 1rem;
   font-weight: 400;
   text-transform: uppercase;
@@ -8302,7 +8302,7 @@ canvas {
 }
 
 .group:hover .group-hover\:font-instrument {
-  font-family: 'Instrument Serif', system-ui;
+  font-family: 'FPHeadProItalic', system-ui;
 }
 
 .group:hover .group-hover\:font-semibold {

@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
 
+@font-face {
+  font-family: 'FPHeadProItalic';
+  src: url('../fonts/FPHeadProItalic-Light.otf') format('opentype');
+  font-weight: 300; /* Assuming 'Light' corresponds to a weight of 300 */
+  font-style: italic;
+  font-display: swap;
+}
+
 /*
 ! tailwindcss v3.4.0 | MIT License | https://tailwindcss.com
 */
@@ -591,6 +599,11 @@ p {
 
 em {
   font-style: normal;
+}
+
+i {
+  font-family: 'FPHeadProItalic';
+  font-style: italic;
 }
 
 a {

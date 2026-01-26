@@ -8,12 +8,12 @@
     <meta name="description" content="Galería de eventos y equipamiento de AVI MAC" />
 
     <!-- Stylesheets -->
-    <link href="./css/main.css" rel="stylesheet" />
-    <link href="./css/custom.css" rel="stylesheet" />
-    <link href="./css/galeria.css" rel="stylesheet" />
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="../css/custom.css" rel="stylesheet" />
+    <link href="../css/galeria.css" rel="stylesheet" />
 
     <!--Favicon-->
-    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="icon" type="image/png" href="../images/favicon.png" />
 </head>
 
 <body class="bg-backgroundBody dark:bg-dark transition-colors duration-300">
@@ -21,13 +21,14 @@
     <header id="header" class="w-full fixed z-[9999]">
         <nav class="z-[1000] w-full fixed px-5 sm:px-8 pt-1 sm:pt-5 nav-top" aria-label="Main navigation">
             <div class="flex justify-between items-center h-[68px]">
-                <a href="index.html">
-                    <img class="header-logo inline-block dark:hidden" src="images/logo-avi-mac-color.png" alt="logo" />
-                    <img class="header-logo dark:inline-block hidden" src="images/logo-avi-mac-negativo.png"
+                <a href="../">
+                    <img class="header-logo inline-block dark:hidden" src="../images/logo-avi-mac-color.png"
+                        alt="logo" />
+                    <img class="header-logo dark:inline-block hidden" src="../images/logo-avi-mac-negativo.png"
                         alt="logo" />
                 </a>
                 <div class="flex items-center gap-4">
-                    <a href="index.html" class="rv-button rv-button-white btn-volver">
+                    <a href="../" class="rv-button rv-button-white btn-volver">
                         <div class="rv-button-top"><span>Volver</span></div>
                         <div class="rv-button-bottom"><span>Volver</span></div>
                     </a>
@@ -76,7 +77,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="js/gallery_data.js"></script>
+    <script src="../js/gallery_data.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('gallery-container');
@@ -93,9 +94,9 @@
                         cat.images.forEach(img => {
                             const item = document.createElement('div');
                             item.className = 'gallery-item reveal-me';
-                            item.innerHTML = `<img src="${img.src}" alt="${img.alt}" loading="lazy">`;
+                            item.innerHTML = `<img src="${"../" + img.src}" alt="${img.alt}" loading="lazy">`;
                             item.addEventListener('click', () => {
-                                lightboxImg.src = img.src;
+                                lightboxImg.src = "../" + img.src;
                                 lightbox.style.display = 'flex';
                                 document.body.style.overflow = 'hidden';
                             });

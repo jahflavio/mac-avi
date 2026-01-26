@@ -66,6 +66,18 @@
   height: auto;
 }
 
+
+
 .dark .espectaculo-icon {
+
   filter: invert(1);
+
+}
+
+
+
+#galeria img {
+
+  object-fit: cover;
+
 }

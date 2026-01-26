@@ -1,0 +1,96 @@
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(24, 24, 24, 0.1);
+    transition: all 0.3s ease;
+}
+
+.dark .gallery-item {
+    border: 1px solid rgba(237, 240, 245, 0.1);
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+    border-color: #000;
+}
+
+.dark .gallery-item:hover {
+    border-color: #fff;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.filter-btn.active {
+    background-color: #181818;
+    color: #fff;
+}
+
+.dark .filter-btn.active {
+    background-color: #edf0f5;
+    color: #181818;
+}
+
+/* Adjustments for Gallery UI */
+.btn-volver .rv-button-top,
+.btn-volver .rv-button-bottom {
+    min-width: auto !important;
+    padding: 12px 24px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-volver .rv-button-bottom {
+    height: 100% !important;
+}
+
+.header-logo {
+    max-height: 45px !important;
+    width: auto;
+}
+
+@media (min-width: 768px) {
+    .header-logo {
+        max-height: 55px !important;
+    }
+}
+
+/* Lightbox Styles */
+#lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 100000;
+    justify-content: center;
+    align-items: center;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+#lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+}

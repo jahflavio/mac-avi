@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Galería | AVI MAC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5" />
+    <meta name="description" content="Galería de eventos y equipamiento de AVI MAC" />
+
+    <!-- Stylesheets -->
+    <link href="./css/main.css" rel="stylesheet" />
+    <link href="./css/custom.css" rel="stylesheet" />
+    <link href="./css/galeria.css" rel="stylesheet" />
+
+    <!--Favicon-->
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+</head>
+
+<body class="bg-backgroundBody dark:bg-dark transition-colors duration-300">
+
+    <header id="header" class="w-full fixed z-[9999]">
+        <nav class="z-[1000] w-full fixed px-5 sm:px-8 pt-1 sm:pt-5 nav-top" aria-label="Main navigation">
+            <div class="flex justify-between items-center h-[68px]">
+                <a href="index.html">
+                    <img class="header-logo inline-block dark:hidden" src="images/logo-avi-mac-color.png" alt="logo" />
+                    <img class="header-logo dark:inline-block hidden" src="images/logo-avi-mac-negativo.png"
+                        alt="logo" />
+                </a>
+                <div class="flex items-center gap-4">
+                    <a href="index.html" class="rv-button rv-button-white btn-volver">
+                        <div class="rv-button-top"><span>Volver</span></div>
+                        <div class="rv-button-bottom"><span>Volver</span></div>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="relative z-10 pt-40 pb-20 md:pt-48">
+        <div class="container px-5 md:px-8">
+            <div class="text-center mb-12 md:mb-20">
+                <div class="rv-badge mb-3">
+                    <span class="rv-badge-text">Portafolio</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">Nuestra Galería</h1>
+                <p class="text-lg opacity-70">Explora nuestro trabajo dividido por categorías.</p>
+            </div>
+
+            <!-- Filters -->
+            <div id="gallery-filters" class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="filter-btn active border dark:border-dark px-6 py-2 transition-all"
+                    data-category="all">Todos</button>
+                <button class="filter-btn border dark:border-dark px-6 py-2 transition-all"
+                    data-category="Corporativo">Corporativo</button>
+                <button class="filter-btn border dark:border-dark px-6 py-2 transition-all"
+                    data-category="Generales">Generales</button>
+                <button class="filter-btn border dark:border-dark px-6 py-2 transition-all"
+                    data-category="Show">Show</button>
+                <button class="filter-btn border dark:border-dark px-6 py-2 transition-all"
+                    data-category="Sociales">Sociales</button>
+                <button class="filter-btn border dark:border-dark px-6 py-2 transition-all"
+                    data-category="Catalogo">Catálogo</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div id="gallery-container" class="gallery-grid">
+                <!-- JS will populate this -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox">
+        <span id="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Full size image">
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/gallery_data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('gallery-container');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.getElementById('lightbox-close');
+
+            function renderGallery(filter = 'all') {
+                container.innerHTML = '';
+
+                galleryData.forEach(cat => {
+                    if (filter === 'all' || cat.category === filter) {
+                        cat.images.forEach(img => {
+                            const item = document.createElement('div');
+                            item.className = 'gallery-item reveal-me';
+                            item.innerHTML = `<img src="${img.src}" alt="${img.alt}" loading="lazy">`;
+                            item.addEventListener('click', () => {
+                                lightboxImg.src = img.src;
+                                lightbox.style.display = 'flex';
+                                document.body.style.overflow = 'hidden';
+                            });
+                            container.appendChild(item);
+                        });
+                    }
+                });
+            }
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderGallery(btn.dataset.category);
+                });
+            });
+
+            lightboxClose.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Initial render
+            renderGallery();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,6 +1,16 @@
 @media (max-width: 1023px) {
+
+  /* Centrar verticalmente el contenido del header en móvil */
+  .nav-top {
+    display: flex;
+    align-items: center;
+    height: 96px;
+    /* h-24 = 96px */
+  }
+
   .hero-video {
-    object-fit: cover; /* Llena el contenedor, manteniendo la proporción 16:9 */
+    object-fit: cover;
+    /* Llena el contenedor, manteniendo la proporción 16:9 */
     object-position: center top;
     z-index: 1 !important;
   }
@@ -12,7 +22,10 @@
   /* Desactiva el efecto de scroll pegajoso en móvil */
   #inicio {
     height: auto !important;
+    padding-top: 96px;
+    /* Altura del header móvil para que el contenido comience debajo */
   }
+
   #hero-sticky-wrapper {
     position: static !important;
     height: auto !important;
@@ -23,32 +36,44 @@
     display: flex;
     flex-direction: column;
     height: auto !important;
+    margin-top: 0;
+    /* Sin margen para que el video esté pegado al header */
   }
 
-  /* Crea un contenedor con proporción 16:9 para el video */
+  /* Contenedor del video con altura fija para que se vea completo */
   #hero-inner-wrapper::before {
     content: '';
-    display: block;
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* Proporción 16:9 (9 / 16 = 0.5625) */
-    height: 0;
+    display: none;
+    /* Desactivar el espaciador proporcional */
   }
 
-  /* Mueve el video dentro del nuevo contenedor, forzándolo a llenarlo */
-  .hero-video, #hero-gradient-overlay {
+  /* Ajustar el video para que se vea completo en el espacio disponible */
+  .hero-video {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    /* Altura fija del 50% del viewport para que se vea completo */
+    max-height: 400px;
+    /* Altura máxima para evitar que sea demasiado grande */
+  }
+
+  #hero-gradient-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100% !important; /* Llena el contenedor con proporción 16:9 */
+    height: 50vh;
+    max-height: 400px;
   }
-  
+
   /* Reposiciona el contenedor del texto */
   #hero-content-container {
     position: static !important;
     transform: none !important;
-    padding: 2.5rem 1rem; /* 40px 16px */
+    padding: 2.5rem 1rem;
+    /* 40px 16px */
     z-index: 3 !important;
     /* El color de fondo coincide con el final del gradiente para una transición suave */
     background-color: #EDF0F5;
@@ -56,7 +81,15 @@
 
   /* Ajusta el color de fondo para el modo oscuro */
   .dark #hero-content-container {
-      background-color: #0d0d0d;
+    background-color: rgb(21, 21, 21);
+  }
+
+  .dark #hero-content-container,
+  .dark #hero-content-container h1,
+  .dark #hero-content-container p,
+  .dark #hero-content-container .rv-badge-text {
+    /* Se usa !important para sobreescribir los estilos de main.css */
+    color: #fff !important;
   }
 }
 
@@ -74,10 +107,25 @@
 
 }
 
-
+/* Cambiar el degradado del hero en modo oscuro */
+.dark #hero-gradient-overlay {
+  background-image: linear-gradient(to bottom, rgba(21, 21, 21, .6) 0%, rgba(21, 21, 21, 1) 100%) !important;
+}
 
 #galeria img {
 
   object-fit: cover;
 
+}
+
+/* Asegurar que la información de contacto del menú sea blanca en ambos modos */
+.menu-contact-info,
+.menu-contact-info span,
+.menu-contact-info a {
+  color: #fff !important;
+}
+
+.menu-contact-info a:hover {
+  color: #fff !important;
+  opacity: 1;
 }

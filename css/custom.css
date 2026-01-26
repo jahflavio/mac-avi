@@ -91,6 +91,11 @@
     /* Se usa !important para sobreescribir los estilos de main.css */
     color: #fff !important;
   }
+
+  /* Ajustes para la página de galería en móvil */
+  body.gallery-page main {
+    padding-top: 150px !important;
+  }
 }
 
 .espectaculo-icon {
